@@ -28,6 +28,7 @@ email=sys.argv[2]
 password=hashlib.sha256(sys.argv[3].encode()).hexdigest()
 Combined=str(username)+str(email)+str(password)
 token=hashlib.sha256(Combined.encode()).hexdigest()
+userid=hashlib.sha256(str(username)+str(email)+str(UserCode).encode()).hexdigest()
 
 if(isValid(email)):
     pass
@@ -61,5 +62,5 @@ if(LoginErrors):
 else:
     LoginsFile=open(AuthFile,'a')
     #Username[0], Usercode[1], Usercode[2], Email[3], Password[4], Token[5]
-    LoginsFile.write(str(username)+":"+str(UserCode)+":"+str(email)+":"+str(password)+":"+str(token))
+    LoginsFile.write(str(userid)+":"+str(username)+":"+str(UserCode)+":"+str(email)+":"+str(password)+":"+str(token))
     LoginsFile.close()
