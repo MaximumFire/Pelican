@@ -34,7 +34,7 @@
 
         <div class="column">
             <h4>Benefits of Pelican</h4>
-            <h6>Pelican is being made to allow higher levels of customisation when compared to other industry standard applications. It is unlikely that there will be any performance increases however you will have the ability to mould your account to your personal liking.</h6>
+            <h6>Pelican is being made to allow higher levels of customisation and security when compared to other industry standard applications.</h6>
         </div>
 
     </div>
