@@ -14,7 +14,7 @@ token=sys.argv[4]
 AccountFile = open(AuthFile, 'r')
 AccountList = AccountFile.readlines()
 
-    #UserID[0], Username[1], Usercode[2], Email[3], Password[4], Token[5]
+    # Username[1], 
 for account in AccountList:
     AccountInfo=account.split(":")
     if(AccountInfo[0].lower()==username.lower() and AccountInfo[4]==password or AccountInfo[3].lower()==email.lower() and AccountInfo[4]==password or token == AccountInfo[5]):
