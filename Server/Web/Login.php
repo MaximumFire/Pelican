@@ -1,23 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pelican - Signin</title>
-    <link rel="stylesheet" href="css/Darkmode/login.css">
-  </head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <title>Pelican</title>
+</head>
+<body>
 
-  <body>
-    <div class="form-container">
-      <h1 class=typelabel>Login</h1>
-      <form name="Signin" action="/Backend/Auth.py" method="get" class="form-items">
-        <input type="text" name="email" placeholder="Email" required><br>
-        <input type="password" name="pass" placeholder="Password" required><br>
-        <input type="submit" value="Submit">
-      </form>
+    <div class="header typewriter">
+        <img src="images/logo.png">
+        <h1>Pelican: Security where it counts</h1>   
     </div>
-  </body>
+
+    <div class="topnav">
+        <a href="home.php">Home</a>
+        <a href="download.php">Download</a>
+        <a href="support.php">Support</a>
+        <a href="about.php">About</a>
+        <a href="login.php">Login</a>
+        <a href="register.php">Register</a>
+        <a href="tos.php">ToS</a>
+
+    </div>
+
+    <div class="login medium-text">
+        <form action="" method="post" class="login">
+            <table>
+                <tr>
+                    <td>Email:</td>
+                    <td>
+                        <input type="text" name="email">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Password:</td>
+                    <td>
+                        <input type="password" name="pass">
+                    </td>
+                </tr>
+
+                <tr>
+                    <input type="submit" name="submit" value="Login">
+                </tr>
+            </table>
+        </form>
+    </div>
+	
+	<?php
+      if (isset($_POST["submit"])){
+        $user = "0";
+        $email = $_POST["email"];
+        $pass = $_POST["pass"];
+        $token = "0";
+        $userid = "0";
+        echo passthru("python Backend/Auth/Auth.py $user $email $pass $token $userid");
+      }
+    ?>
+
+</body>
 </html>
-
-
-<!-- get the request back from python, if it gives it access then login and set its token in local storage

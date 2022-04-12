@@ -16,11 +16,9 @@ def isValid(email):
 
 #---
 
-
-
 LoginErrors=False
 UserCode=00000
-AuthFile="../../../Logins.encrypted"
+AuthFile="../Logins.encrypted"
 
 username=sys.argv[1]
 username=''.join([i if ord(i) < 128 else ' ' for i in username])
@@ -28,7 +26,7 @@ email=sys.argv[2]
 password=hashlib.sha256(sys.argv[3].encode()).hexdigest()
 Combined=str(username)+str(email)+str(password)
 token=hashlib.sha256(Combined.encode()).hexdigest()
-userid=hashlib.sha256(str(username)+str(email)+str(UserCode).encode()).hexdigest()
+userid=hashlib.sha256((str(username)+str(email)+str(UserCode)).encode()).hexdigest()
 
 if(isValid(email)):
     pass
@@ -64,3 +62,4 @@ else:
     #UserID[0], Username[1], Usercode[2], Email[3], Password[4], Token[5]
     LoginsFile.write(str(userid)+":"+str(username)+":"+str(UserCode)+":"+str(email)+":"+str(password)+":"+str(token))
     LoginsFile.close()
+    print("Successfully registered.")
