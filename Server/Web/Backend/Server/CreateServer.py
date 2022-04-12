@@ -10,8 +10,7 @@ from AuthFunction import Authenticate;
 
 
 servername=sys.argv[1]
-username=sys.argv[2]
-token=sys.argv[3]
+token=sys.argv[2]
 
 if(Authenticate(token)):
     ServernameInt=0
@@ -30,7 +29,7 @@ if(Authenticate(token)):
         os.mkdir("../../../Servers/"+str(serverid))
 
         with open(f"../../../Servers/{serverid}/ServerInfo.txt", "a+") as f:
-            f.write(f"{serverid}\n{username}\n{servername}")
+            f.write(f"{serverid}\nUSERNAME HERE\n{servername}")
             f.close()
         with open(f"../../../Servers/{serverid}/BannedUsers.txt", "a+") as f:
             f.write(f"")
