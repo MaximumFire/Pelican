@@ -7,7 +7,6 @@ def Authenticate(token):
     AccountFile = open(AuthFile, 'r')
     AccountList = AccountFile.readlines()
 
-        #UserID[0], Username[1], Usercode[2], Email[3], Password[4], Token[5]
     for account in AccountList:
         AccountInfo=account.split(":")
         if(token == AccountInfo[5]):
