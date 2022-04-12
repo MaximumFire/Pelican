@@ -28,7 +28,8 @@ email=sys.argv[2]
 password=hashlib.sha256(sys.argv[3].encode()).hexdigest()
 Combined=str(username)+str(email)+str(password)
 token=hashlib.sha256(Combined.encode()).hexdigest()
-userid=hashlib.sha256(str(username)+str(email)+str(UserCode).encode()).hexdigest()
+useridcombined=str(username)+str(email)+str(UserCode)
+userid=hashlib.sha256(useridcombined.encode()).hexdigest()
 
 if(isValid(email)):
     pass
