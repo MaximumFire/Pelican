@@ -16,3 +16,17 @@ def Authenticate(token):
             pass
     print("Login Failed")
     return False
+
+
+def AuthenticateReturnID(token):
+    AccountFile = open(AuthFile, 'r')
+    AccountList = AccountFile.readlines()
+
+    for account in AccountList:
+        AccountInfo=account.split(":")
+        if(token == AccountInfo[5]):
+            return AccountInfo[0]
+        else:
+            pass
+    print("Login Failed")
+    return ""

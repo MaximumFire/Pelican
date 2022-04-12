@@ -36,7 +36,7 @@ if(Authenticate(token)):
             f.write(f"")
             f.close()
         with open(f"../../../Servers/{serverid}/InvitedUsers.txt", "a+") as f:
-            f.write(f"")
+            f.write(f"{AuthenticateReturnID(token)}\n")
             f.close()
 else:
     print("NO AUTH")
