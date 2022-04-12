@@ -11,7 +11,7 @@
 <body>
 
     <div class="header typewriter">
-        <img src="images/logo.png">
+        <img src="images/logo.svg">
         <h3>With the ease of Discord and security of matrix!</h3>   
     </div>
 

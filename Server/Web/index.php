@@ -20,7 +20,7 @@
     </div>
 
     <div class="container">
-        <img src="images/logo.png" alt="Pelican">
+        <img src="images/logo.svg" alt="Pelican">
       <header class="medium-text">
         <h1 class="motto">Its Time To Join Pelican</h1>
         <h4 class="motto">With the security of Matrix and the ease of Discord</h4>

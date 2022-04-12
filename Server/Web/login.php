@@ -11,7 +11,7 @@
 <body>
 
     <div class="header typewriter">
-        <img src="images/logo.png">
+        <img src="images/logo.svg">
         <h1>Pelican: Security where it counts</h1>   
     </div>
 
