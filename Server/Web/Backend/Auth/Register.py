@@ -44,11 +44,11 @@ Logins= LoginsFile.readlines()
  
 for account in Logins:
     AccountDetails=account.split(":")
-    if(username.lower()==AccountDetails[0].lower()):
+    if(username.lower()==AccountDetails[1].lower()):
         UserCode+=1
     else:
         pass
-    if(email.lower()==AccountDetails[1].lower()):
+    if(email.lower()==AccountDetails[3].lower()):
         LoginErrors=True
         print("email already used")
         exit
@@ -61,6 +61,6 @@ if(LoginErrors):
     exit
 else:
     LoginsFile=open(AuthFile,'a')
-    #Username[0], Usercode[1], Usercode[2], Email[3], Password[4], Token[5]
+    #UserID[0], Username[1], Usercode[2], Email[3], Password[4], Token[5]
     LoginsFile.write(str(userid)+":"+str(username)+":"+str(UserCode)+":"+str(email)+":"+str(password)+":"+str(token))
     LoginsFile.close()
