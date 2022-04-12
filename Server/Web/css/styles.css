@@ -12,6 +12,7 @@ body {
     padding: 20px;
     text-align: center;
     font-size: 300%;
+    font-family: 'Trebuchet MS', sans-serif;
   }
 
 .pos-left {
@@ -39,6 +40,7 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-family: 'Trebuchet MS', sans-serif;
 }
 
 .topnav a:hover {
@@ -123,9 +125,10 @@ body {
 .tos {
     color: white;
     padding: 10px;
+    font-family: 'Trebuchet MS', sans-serif;
 }
 
-.typewriter h2 {
+.typewriter h3 {
     overflow: hidden;
     border-right: .10em solid rgb(0, 0, 0); 
     white-space: nowrap;
@@ -154,6 +157,7 @@ body {
     padding-right: 400px;
     padding-left: 10px;
     font-size: 30px;
+    font-family: 'Trebuchet MS', sans-serif;
 }
 
 .center {
@@ -164,10 +168,12 @@ body {
 
 .large-text {
   font-size: 400%;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 .medium-text {
   font-size: 200%;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 .container button {
