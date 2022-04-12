@@ -7,4 +7,4 @@ AccountInfo[3]: Email <br />
 AccountInfo[4]: Password <br /> 
 AccountInfo[5]: Token <br /> 
 **-----**
-TEST
+TEST.
