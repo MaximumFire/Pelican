@@ -41,16 +41,19 @@ LoginsFile = open(AuthFile, 'r')
 Logins= LoginsFile.readlines()
  
 for account in Logins:
-    AccountDetails=account.split(":")
-    if(username.lower()==AccountDetails[1].lower()):
-        UserCode+=1
-    else:
-        pass
-    if(email.lower()==AccountDetails[3].lower()):
-        LoginErrors=True
-        print("email already used")
-        exit
-    else:
+    try:
+        AccountDetails=account.split(":")
+        if(username.lower()==AccountDetails[1].lower()):
+            UserCode+=1
+        else:
+            pass
+        if(email.lower()==AccountDetails[3].lower()):
+            LoginErrors=True
+            print("email already used")
+            exit
+        else:
+            pass
+    except:
         pass
 LoginsFile.close()
 
@@ -62,4 +65,4 @@ else:
     #UserID[0], Username[1], Usercode[2], Email[3], Password[4], Token[5]
     LoginsFile.write(str(userid)+":"+str(username)+":"+str(UserCode)+":"+str(email)+":"+str(password)+":"+str(token))
     LoginsFile.close()
-    print("Successfully registered.")
+    print("Register Success")
