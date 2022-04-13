@@ -16,11 +16,14 @@ Password: private allows user to login
 Token: sha256 username+email+password, used like password for API
 
 
-Auth.py: email, password  
-Register.py: username, email, password  
-AuthFunction.py:   
+**Auth.py** email, password  
+**Register.py** username, email, password  
+**AuthFunction.py**   
 ```  
   
-Authenticate(token) authentacte a user by a token, returns True/False  
+Authenticate(token) authenticate a user by a token, returns True/False  
+AuthenticateReturnID(token) authenticate a user by a token, returns UserID
+AuthenticateUsername(token) authenticate a user by a token, returns Username
+
   
 ```

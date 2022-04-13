@@ -37,3 +37,16 @@ def AuthenticateReturnID(token):
     AccountFile.close()
     return ""
 
+def AuthenticateUsername(token):
+    AccountFile = open(AuthFile, 'r')
+    AccountDict = json.load(AccountFile)
+
+    for account in AccountDict:
+        uToken = AccountDict[account]["token"]
+        if(token == uToken):
+            return AccountDict[account]["username"]
+        else:
+            pass
+    print("Login Failed")
+    AccountFile.close()
+    return ""
