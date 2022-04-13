@@ -53,14 +53,12 @@
 	<div class="php">
     <?php
     if (isset($_POST["submit"])){
-        $user = "0";
         $email = $_POST["email"];
         $pass = $_POST["pass"];
-        $userid = "0";
-        if ((strpos($user, " ") != FALSE) or (strpos($pass, " ") != FALSE)) {
+        if ((strpos($email, " ") != FALSE) or (strpos($pass, " ") != FALSE)) {
             echo "invalid entries (no spaces!)";
         } else {
-            echo passthru("python Backend/Auth/Auth.py $user $email $pass $userid");
+            echo passthru("python Backend/Auth/Auth.py $email $pass");
         }
     }
     ?>
