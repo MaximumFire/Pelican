@@ -15,6 +15,7 @@ userid=sys.argv[5] #Requested userid, for blank ""
 AccountFile = open(AuthFile, 'r') #Open the account list
 AccountList = AccountFile.readlines() #Read the lines in the account list
 
+#Multiple user accounts are being read as one account => Change storing format
 for account in AccountList:
     AccountInfo=account.split(":")
     if(AccountInfo[0].lower()==userid.lower() and AccountInfo[4]==password or AccountInfo[3].lower()==email.lower() and AccountInfo[4]==password or token == AccountInfo[5] or AccountInfo[1].lower()==username.lower() and AccountInfo[4]==password):

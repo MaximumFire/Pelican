@@ -1,4 +1,5 @@
 from http import server
+from sys import os
 import sys
 import random
 import re
@@ -9,7 +10,6 @@ serverid=sys.argv[2]
 channelid=sys.argv[3]
 token=sys.argv[4]
 
-import sys
 sys.path.insert(1, '../Auth/')
 from AuthFunction import Authenticate;
 
@@ -27,7 +27,7 @@ if(Authenticate(token)):
 
 
     if(os.path.isdir("../../../Servers/"+str(serverid))):
-        if(os.path.isdir(f"../../../Servers/{serverid}/{channelid}")
+        if(os.path.isdir(f"../../../Servers/{serverid}/{channelid}")):
             with open(f"../../../Servers/{serverid}/{channelid}/Messages.log", "a+") as f:
                 f.write(f"{message}")
                 f.close()
