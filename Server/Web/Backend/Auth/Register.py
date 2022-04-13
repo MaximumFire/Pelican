@@ -50,7 +50,7 @@ def nameInUse(name):
     return False
 
 def checkPass(password):
-    if len(password) > 8:
+    if len(password) > 7:
         return True
     return False
 
