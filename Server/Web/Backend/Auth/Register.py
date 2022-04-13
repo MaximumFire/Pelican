@@ -16,13 +16,10 @@ def isValid(email):
 def checkName(name):
     allowed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     for char in name:
-        if char not in allowed:
+        if char not in allowed or len(name) < 3:
             return False 
     return True
 
-
-#is this password check secure?
-#should we check password for invalid characters?
 def checkPass(password):
     if len(password) > 8:
         return True
@@ -34,9 +31,9 @@ LoginErrors=False
 UserCode=00000
 AuthFile="../Logins.encrypted"
 
-#need alternative to sys.argv => if user enters 'super man' as username, 'man' gets set as email and program throws an email error
+#1. Bug: Input Error, ex.: If user enters 'super man' as username, 'man' gets set as email and program throws an email error
+# Suggestion: 
 username=sys.argv[1]
-#username=''.join([i if ord(i) < 128 else ' ' for i in username])
 if not (checkName(username)):
     LoginErrors=True
     print("invalid username")
@@ -48,6 +45,7 @@ if not (isValid(email)):
     print("invalid email")
     exit
 
+# Is it secure to check the unhashed password like this?
 password=sys.argv[3]
 if not (checkPass(password)):
     LoginErrors=True
@@ -62,7 +60,9 @@ userid=hashlib.sha256((str(username)+str(email)+str(UserCode)).encode()).hexdige
 
 LoginsFile = open(AuthFile, 'r')
 Logins= LoginsFile.readlines()
- 
+
+#2. Bug: User login will fail if multiple users are stored in this format at Logins.encrypted
+# Suggestion: Store data in multidimensional-dictionaries with key-value pairs (?)
 for account in Logins:
     try:
         AccountDetails=account.split(":")
