@@ -13,7 +13,7 @@ with open(AuthFile, "r") as f:
     for login in Logins:
         accpassword = Logins[login]["password"]
         accemail = Logins[login]["email"]
-        if accemail == email and accpassword == password:
+        if accemail.lower() == email.lower() and accpassword == password:
             print("Login Success")
             exit()
 print("Login Failed")
