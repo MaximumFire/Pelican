@@ -61,7 +61,7 @@ def setUserCode():
     if LoginsDict == {}: # no users added yet
         usercode = 0
     else:
-        usercode = len(LoginsDict) + 1
+        usercode = len(LoginsDict)
     LoginsFile.close()
     return usercode
 
@@ -74,7 +74,7 @@ def saveData(uID, uName, uCode, uEmail, uPass, uToken):
     usercode = uCode
     LoginsFile = open(AuthFile, "r+")
     data = json.load(LoginsFile)
-    new_user = {f"{usercode}": {"username": uName, "email": uEmail, "password": uPass, "id": uID}}
+    new_user = {f"{usercode}": {"username": uName, "email": uEmail, "password": uPass, "id": uID, "token": uToken}}
     data.update(new_user)
     LoginsFile.seek(0)
     json.dump(data, LoginsFile)
