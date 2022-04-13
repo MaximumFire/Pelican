@@ -99,7 +99,7 @@ if not (isValid(email)):
 password=sys.argv[3]
 if not (checkPass(password)):
     LoginErrors=True
-    print("password too short")
+    print("Password To Short")
     exit()
 
 password=hashlib.sha256(sys.argv[3].encode()).hexdigest()
