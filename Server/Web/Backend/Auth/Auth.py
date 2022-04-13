@@ -15,7 +15,6 @@ AccountFile = open(AuthFile, 'r') #Open the account list
 AccountList = json.load(AccountFile)#Read the json in Account File
 
 
-#Multiple user accounts are being read as one account => Change storing format
 for account in AccountList:
     if(AccountList[account]["id"].lower() == userid.lower() and AccountList[account]["password"] == password) or \
         (AccountList[account]["email"].lower() == email.lower() and AccountList[account]["password"] == password) or \

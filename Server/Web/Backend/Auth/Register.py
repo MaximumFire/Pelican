@@ -69,18 +69,20 @@ def setUserCode():
 def saveData(uID, uName, uCode, uEmail, uPass, uToken):
     if (LoginErrors):
         exit
-        
+
     usercode = uCode
     LoginsFile = open(AuthFile, "r+")
     data = json.load(LoginsFile)
+
     new_user = {f"{usercode}": {"username": uName, "email": uEmail, "password": uPass, "id": uID, "token": uToken}}
+    
     data.update(new_user)
     LoginsFile.seek(0)
     json.dump(data, LoginsFile)
     LoginsFile.close()
 
-
 #---
+
 
 username=sys.argv[1]
 if not (checkName(username)):
@@ -119,31 +121,3 @@ try:
 except Exception as e:
     print(e)
     pass
-
-
-# for account in Logins:
-#     try:
-#         AccountDetails=account.split(":")
-#         if(username.lower()==AccountDetails[1].lower()):
-#             UserCode+=1
-#         else:
-#             pass
-#         if(email.lower()==AccountDetails[3].lower()):
-#             LoginErrors=True
-#             print("email already used")
-#             exit
-#         else:
-#             pass
-#     except:
-#         pass
-# LoginsFile.close()
-
-
-# if(LoginErrors):
-#     exit
-# else:
-#     LoginsFile=open(AuthFile,'a')
-#     #UserID[0], Username[1], Usercode[2], Email[3], Password[4], Token[5]
-#     LoginsFile.write(str(userid)+":"+str(username)+":"+str(UserCode)+":"+str(email)+":"+str(password)+":"+str(token))
-#     LoginsFile.close()
-#     print("Register Success")
