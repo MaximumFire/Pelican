@@ -20,10 +20,9 @@ for account in AccountList:
     if(AccountList[account]["id"].lower() == userid.lower() and AccountList[account]["password"] == password) or \
         (AccountList[account]["email"].lower() == email.lower() and AccountList[account]["password"] == password) or \
             (AccountList[account]["username"].lower() == username and AccountList[account]["password"] == password):
-        username = AccountList[account]["username"]
-        id = AccountList[account]["id"]
-        print(f"Login as {id}:{username}")
-        exit()
+            output = AccountList[account]["id"] + ":" + AccountList[account]["username"]
+            print(output)
+            exit()
     else:
         pass
 print("Login Failed")

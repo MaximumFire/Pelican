@@ -26,6 +26,10 @@
 
     </div>
 
+    <script>
+      const login = () => window.location.replace("login.php");
+    </script>
+
     <div class="register medium-text">
         <form action="" method="post" class="register">
             <table>

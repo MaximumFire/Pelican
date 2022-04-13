@@ -54,14 +54,15 @@ def checkPass(password):
         return True
     return False
 
-def setUserCode():
+def setUserCode(): # gets identifier for the key (to put as the key in json)
     LoginsFile = open(AuthFile, 'r')
     LoginsDict = json.load(LoginsFile)
 
-    for user in LoginsDict:
-        if (LoginsDict[user]["username"].lower() == username.lower()):
-            usercode+=1
-    LoginsFile.close()
+    if LoginsDict == {}: # no users added yet
+        usercode = 0
+    else: # some users added, so make it 1 more than last (starts at 0 so it will be len(LoginsDict))
+        usercode = len(LoginsDict)
+    
     return usercode
 
 def saveData(uID, uName, uCode, uEmail, uPass, uToken):
