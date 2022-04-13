@@ -69,8 +69,7 @@ def setUserCode():
 def saveData(uID, uName, uCode, uEmail, uPass, uToken):
     if (LoginErrors):
         exit
-    pass
-    #Need solution here to append user data in right format to the JSON file
+        
     usercode = uCode
     LoginsFile = open(AuthFile, "r+")
     data = json.load(LoginsFile)
