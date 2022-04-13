@@ -44,7 +44,7 @@
                 </tr>
 
                 <tr>
-                    <input type="submit" name="submit" value="Login">
+                    <input id="input-form" type="submit" name="submit" value="Login">
                 </tr>
             </table>
         </form>
@@ -52,7 +52,7 @@
 	
 	<div class="php">
     <?php
-      if (isset($_POST["submit"])){
+    if (isset($_POST["submit"])){
         $user = "0";
         $email = $_POST["email"];
         $pass = $_POST["pass"];
@@ -62,7 +62,7 @@
         } else {
             echo passthru("python Backend/Auth/Auth.py $user $email $pass $userid");
         }
-      }
+    }
     ?>
     </div>
 

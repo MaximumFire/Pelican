@@ -5,14 +5,11 @@ import re
 import json
 #---
 
-LoginErrors=False
-
-
 
 #Var
 AuthFile="../Logins.encrypted.json"
-tag=0000
 userid=0
+LoginErrors=False
 
 
 #modules
@@ -48,6 +45,18 @@ def checkPass(password): #Make sure the password is long enough
         return True
     return False
 
+def setUserCode(): # gets identifier for the key (to put as the key in json)
+    LoginsFile = open(AuthFile, 'r')
+    LoginsDict = json.load(LoginsFile)
+
+    if LoginsDict == {}: # no users added yet
+        usercode = 0
+    else: # some users added, so make it 1 more than last (starts at 0 so it will be len(LoginsDict))
+        usercode = len(LoginsDict)
+    
+    LoginsFile.close()
+    return usercode
+
 def setTag(): #Set the user tag to allow multiple users with the same name
     tag=0
     LoginsFile = open(AuthFile, 'r')
@@ -63,7 +72,6 @@ def saveData(uID, uName, uCode, uEmail, uPass, uToken, uTag): #Save the data int
     if (LoginErrors):
         exit()
     else:       
-        tag = uCode
         LoginsFile = open(AuthFile, "r+")
         data = json.load(LoginsFile)
         new_user = {f"{tag}": {"username": uName, "tag": uTag, "email": uEmail, "password": uPass, "id": uID, "token": uToken, "role": "Member", "badges": []}}
@@ -97,10 +105,13 @@ if not (checkPass(password)):
 password=hashlib.sha256(sys.argv[3].encode()).hexdigest()
 Combined=str(username)+str(email)+str(password)
 token=hashlib.sha256(Combined.encode()).hexdigest()
-tag=setTag()
+tag=str(setTag())
+
+usercode = str(setUserCode())
 
 for char in (str(username)+str(tag)):
     userid += ord(char)
+userid = str(userid)
 
 
 LoginsFile = open(AuthFile, 'r')
@@ -108,7 +119,7 @@ LoginsFile = json.load(LoginsFile)
     
 try:
     if (not emailInUse(email)):
-        saveData(userid, username, tag, email, password, token, tag)
+        saveData(userid, username, usercode, email, password, token, tag)
         print("Register Success")
 except Exception as e:
     print(e)
