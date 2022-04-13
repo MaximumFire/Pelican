@@ -69,7 +69,7 @@ def saveData(uID, uName, uCode, uEmail, uPass, uToken, uTag): #Save the data int
         new_user = {f"{usercode}": {"username": uName, "tag": uTag, "email": uEmail, "password": uPass, "id": uID, "token": uToken}}
         data.update(new_user)
         LoginsFile.seek(0)
-        json.dump(data, LoginsFile)
+        json.dump(data, LoginsFile, indent=2)
         LoginsFile.close()
 
 
