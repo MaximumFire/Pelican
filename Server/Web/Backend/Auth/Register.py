@@ -106,7 +106,10 @@ Combined=str(username)+str(email)+str(password)
 token=hashlib.sha256(Combined.encode()).hexdigest()
 
 usercode = setUserCode()
-userid=hashlib.sha256((str(username)+str(email)+str(usercode)).encode()).hexdigest()
+userid=0
+
+for char in (str(username)+str(usercode)):
+    userid += ord(char)
 
 
 LoginsFile = open(AuthFile, 'r')
