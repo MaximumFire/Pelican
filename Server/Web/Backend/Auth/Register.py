@@ -43,18 +43,6 @@ def checkName(name):
             return False 
     return True
 
-def nameInUse(name):
-    LoginsFile = open(AuthFile, 'r')
-    LoginsDict = json.load(LoginsFile)
-
-    for user in LoginsDict:
-        if (LoginsDict[user]["username"].lower() == name.lower()):
-            LoginErrors=True
-            print("Username already in use")
-            LoginsFile.close()
-            exit()
-    LoginsFile.close()
-    return False
 
 def checkPass(password):
     if len(password) > 7:
@@ -119,7 +107,7 @@ LoginsFile = open(AuthFile, 'r')
 LoginsFile = json.load(LoginsFile)
     
 try:
-    if (not nameInUse(username) and not emailInUse(email)):
+    if (not emailInUse(email)):
         saveData(userid, username, usercode, email, password, token, tag)
         print("Register Success")
 except Exception as e:
