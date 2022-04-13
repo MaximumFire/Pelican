@@ -4,5 +4,13 @@
 "username": username <br /> 
 "email": Email <br /> 
 "password": Password <br /> 
+"tag": Tag <br />
 **-----**
-TEST.
+
+
+Tag: User Tag (Name:0001)
+ID: User id for API, ord username+Tag
+Username: Username for user
+Email: private info, users email
+Password: private allows user to login
+Token: sha256 username+email+password, used like password for API

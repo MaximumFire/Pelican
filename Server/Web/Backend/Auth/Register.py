@@ -7,7 +7,12 @@ import json
 #---
 
 LoginErrors=False
+
+
+
+#Var
 AuthFile="../Logins.encrypted.json"
+tag=0000
 
 #modules
 def isValid(email):
@@ -64,18 +69,18 @@ def setUserCode():
     LoginsFile.close()
     return usercode
 
-def saveData(uID, uName, uCode, uEmail, uPass, uToken):
+def saveData(uID, uName, uCode, uEmail, uPass, uToken, uTag):
     if (LoginErrors):
         exit()
-        
-    usercode = uCode
-    LoginsFile = open(AuthFile, "r+")
-    data = json.load(LoginsFile)
-    new_user = {f"{usercode}": {"username": uName, "email": uEmail, "password": uPass, "id": uID, "token": uToken}}
-    data.update(new_user)
-    LoginsFile.seek(0)
-    json.dump(data, LoginsFile)
-    LoginsFile.close()
+    else:       
+        usercode = uCode
+        LoginsFile = open(AuthFile, "r+")
+        data = json.load(LoginsFile)
+        new_user = {f"{usercode}": {"username": uName, "tag": uTag, "email": uEmail, "password": uPass, "id": uID, "token": uToken}}
+        data.update(new_user)
+        LoginsFile.seek(0)
+        json.dump(data, LoginsFile)
+        LoginsFile.close()
 
 
 #---
@@ -116,7 +121,7 @@ LoginsFile = json.load(LoginsFile)
     
 try:
     if (not nameInUse(username) and not emailInUse(email)):
-        saveData(userid, username, usercode, email, password, token)
+        saveData(userid, username, usercode, email, password, token, tag)
         print("Register Success")
 except Exception as e:
     print(e)
