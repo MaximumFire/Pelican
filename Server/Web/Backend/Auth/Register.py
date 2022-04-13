@@ -10,9 +10,8 @@ LoginErrors=False
 AuthFile="../Logins.encrypted.json"
 
 #modules
-regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
-
 def isValid(email):
+    regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
     if re.fullmatch(regex, email):
         return True
     return False
@@ -58,13 +57,12 @@ def checkPass(password):
 def setUserCode():
     LoginsFile = open(AuthFile, 'r')
     LoginsDict = json.load(LoginsFile)
-    if LoginsDict == {}: # no users added yet
-        usercode = 0
-    else:
-        usercode = len(LoginsDict)
+
+    for user in LoginsDict:
+        if (LoginsDict[user]["username"].lower() == username.lower()):
+            usercode+=1
     LoginsFile.close()
     return usercode
-
 
 def saveData(uID, uName, uCode, uEmail, uPass, uToken):
     if (LoginErrors):
