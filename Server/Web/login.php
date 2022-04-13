@@ -57,7 +57,11 @@
         $pass = $_POST["pass"];
         $token = "0";
         $userid = "0";
-        echo passthru("python Backend/Auth/Auth.py $user $email $pass $token $userid");
+        if ((strpos($user, " ") != FALSE) or (strpos($pass, " ") != FALSE)) {
+            echo "invalid entries (no spaces!)";
+        } else {
+            echo passthru("python Backend/Auth/Auth.py $user $email $pass $token $userid");
+        }
       }
     ?>
 

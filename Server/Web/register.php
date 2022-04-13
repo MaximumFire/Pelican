@@ -62,7 +62,11 @@
         $user = $_POST["user"];
         $pass = $_POST["pass"];
         $email = $_POST["email"];
-        echo passthru("python Backend/Auth/Register.py $user $email $pass");
+        if ((strpos($user, " ") != FALSE) or (strpos($pass, " ") != FALSE) or (strpos($email, " ") != FALSE)) {
+            echo "invalid entries (no spaces!)";
+        } else {
+            echo passthru("python Backend/Auth/Register.py $user $email $pass");
+        }
       }
     ?>
 
