@@ -61,15 +61,15 @@ def checkPass(password):
         return True
     return False
 
-def setUserCode():
+def setTag():
     LoginsFile = open(AuthFile, 'r')
     LoginsDict = json.load(LoginsFile)
 
     for user in LoginsDict:
         if (LoginsDict[user]["username"].lower() == username.lower()):
-            usercode+=1
+            tag+=1
     LoginsFile.close()
-    return usercode
+    return tag
 
 def saveData(uID, uName, uCode, uEmail, uPass, uToken, uTag):
     if (LoginErrors):
@@ -109,7 +109,7 @@ if not (checkPass(password)):
 password=hashlib.sha256(sys.argv[3].encode()).hexdigest()
 Combined=str(username)+str(email)+str(password)
 token=hashlib.sha256(Combined.encode()).hexdigest()
-usercode = setUserCode()
+tag=setTag()
 
 for char in (str(username)+str(usercode)):
     userid += ord(char)
