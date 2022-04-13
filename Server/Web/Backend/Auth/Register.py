@@ -17,13 +17,13 @@ userid=0
 
 
 #modules
-def isValid(email):
+def isValid(email): #Checks if the email is valid
     regex = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
     if re.fullmatch(regex, email):
         return True
     return False
 
-def emailInUse(email):
+def emailInUse(email): #Checks if the email is alredy being used
     LoginsFile = open(AuthFile, 'r')
     LoginsDict = json.load(LoginsFile)
 
@@ -36,7 +36,7 @@ def emailInUse(email):
     LoginsFile.close()
     return False
 
-def checkName(name):
+def checkName(name): #Check that the name is the corrent lan and no illegal characters
     allowed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     for char in name:
         if char not in allowed or len(name) < 3:
@@ -44,12 +44,12 @@ def checkName(name):
     return True
 
 
-def checkPass(password):
+def checkPass(password): #Make sure the password is long enough
     if len(password) > 7:
         return True
     return False
 
-def setTag():
+def setTag(): #Set the user tag to allow multiple users with the same name
     LoginsFile = open(AuthFile, 'r')
     LoginsDict = json.load(LoginsFile)
 
@@ -59,7 +59,7 @@ def setTag():
     LoginsFile.close()
     return tag
 
-def saveData(uID, uName, uCode, uEmail, uPass, uToken, uTag):
+def saveData(uID, uName, uCode, uEmail, uPass, uToken, uTag): #Save the data into the logins file
     if (LoginErrors):
         exit()
     else:       
