@@ -1,6 +1,6 @@
 import sys
 
-command = sys.arg[1]
+command = sys.argv[1]
 
 try:
     with open("shell_logs.txt", "a+") as log:

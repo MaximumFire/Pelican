@@ -18,7 +18,8 @@
         <a href="login.php">Login</a>
         <a href="register.php">Register</a>
         <a href="tos.php">ToS</a>
-
+        
+        <p id="username-display" class="pos-right"></p>
     </div>
     
     <div class="row">

@@ -24,56 +24,38 @@
         <a href="register.php">Register</a>
         <a href="tos.php">ToS</a>
 
+        <p id="username-display" class="pos-right"></p>
     </div>
 
     <script>
       const login = () => window.location.replace("login.php");
     </script>
 
-    <div class="register medium-text">
-        <form action="" method="post" class="register">
-            <table>
-                <tr>
-                    <td>Username:</td>
-                    <td>
-                        <input type="text" name="user">
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td>Email:</td>
-                    <td>
-                        <input type="email" name="email">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Password:</td>
-                    <td>
-                        <input type="password" name="pass">
-                    </td>
-                </tr>
-
-                <tr>
-                    <input type="submit" name="submit" value="Register" onclick="login()">
-                </tr>
-            </table>
-        </form>
+    <div class="login-page">
+        <div class="form">
+            <form action="" method="post">
+                <input name="user" type="text" placeholder="username"/>
+                <input name="email" type="text" placeholder="email address"/>
+                <input name="pass" type="password" placeholder="password"/>
+                <button name="button">create</button>
+                <p class="message">Already registered? <a href="login.php">Sign In</a></p>
+            </form>
+        </div>
     </div>
-	
-	<div class="php">
-    <?php // Runs register.py to add login to file.
-      if (isset($_POST["submit"])){
-        $user = $_POST["user"];
-        $pass = $_POST["pass"];
-        $email = $_POST["email"];
-        if ((strpos($user, " ") != FALSE) or (strpos($pass, " ") != FALSE) or (strpos($email, " ") != FALSE)) {
-            echo "invalid entries (no spaces!)";
-        } else {
-            echo passthru("python Backend/Auth/Register.py $user $email $pass");
+
+    <div class="php">
+        <?php // Runs register.py to add login to file.
+        if (isset($_POST["button"])){
+            $user = $_POST["user"];
+            $pass = $_POST["pass"];
+            $email = $_POST["email"];
+            if ((strpos($user, " ") != FALSE) or (strpos($pass, " ") != FALSE) or (strpos($email, " ") != FALSE)) {
+                echo "invalid entries (no spaces!)";
+            } else {
+                echo passthru("python Backend/Auth/Register.py $user $email $pass");
+            }
         }
-      }
-    ?>
+        ?>
     </div>
 
     <div class="row">
@@ -92,4 +74,5 @@
             <p>If you ever want to donate you can send money to our team Patreon or KickStarter linked in the about tab. We aim to keep this project free from ads so any donations would be gladly appreciated.</p>
         </div>
     </div>
+
 </body>
