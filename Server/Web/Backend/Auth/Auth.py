@@ -1,13 +1,19 @@
 import sys
 import hashlib
-from AuthFunction import Authenticate
+import json
 
-username=sys.argv[1] #Requested username, for blank ""
-email=sys.argv[2] #Requested email, for blank ""
-password=hashlib.sha256(sys.argv[3].encode()).hexdigest() #Requested password, for blank ""
-userid=sys.argv[4] #Requested userid, for blank ""
+AuthFile="../Logins.encrypted.json"
 
-Combined=str(username)+str(email)+str(password)
-token=hashlib.sha256(Combined.encode()).hexdigest()
 
-Authenticate(token)
+email=sys.argv[1] #Requested email, for blank ""
+password=hashlib.sha256(sys.argv[2].encode()).hexdigest() #Requested password, for blank ""
+
+with open(AuthFile, "r") as f:
+    Logins = json.load(f)
+    for login in Logins:
+        accpassword = Logins[login]["password"]
+        accemail = Logins[login]["email"]
+        if accemail == email and accpassword == password:
+            print("Login Success")
+            exit()
+print("Login Failed")
