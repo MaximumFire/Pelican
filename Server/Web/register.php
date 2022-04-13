@@ -57,7 +57,8 @@
         </form>
     </div>
 	
-	<?php // Runs register.py to add login to file.
+	<div class="php">
+    <?php // Runs register.py to add login to file.
       if (isset($_POST["submit"])){
         $user = $_POST["user"];
         $pass = $_POST["pass"];
@@ -69,6 +70,7 @@
         }
       }
     ?>
+    </div>
 
     <div class="row">
         <div class="column">
