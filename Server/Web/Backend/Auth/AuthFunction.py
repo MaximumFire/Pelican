@@ -1,34 +1,39 @@
 import sys
 import hashlib
 import re
+import json
 
-AuthFile="../../../Logins.encrypted"
+AuthFile="../Logins.encrypted.json"
+
 def Authenticate(token):
     AccountFile = open(AuthFile, 'r')
-    AccountList = AccountFile.readlines()
+    AccountDict = json.load(AccountFile)
 
-    for account in AccountList:
-        AccountInfo=account.split(":")
-        if(token == AccountInfo[5]):
-            print(f"Login as {AccountInfo[1]}:{AccountInfo[2]}")
+    for account in AccountDict:
+        if(token == AccountDict[account]["token"]):
+            id = AccountDict[account]["id"]
+            username = AccountDict[account]["username"]
+            print("Login as " + str(id) + ":" + username)
+            AccountFile.close()
             return True
         else:
             pass
     print("Login Failed")
+    AccountFile.close()
     return False
 
 
 def AuthenticateReturnID(token):
     AccountFile = open(AuthFile, 'r')
-    AccountList = AccountFile.readlines()
+    AccountDict = json.load(AccountFile)
 
-    for account in AccountList:
-        AccountInfo=account.split(":")
-        if(token == AccountInfo[5]):
-            return AccountInfo[0]
+    for account in AccountDict:
+        uToken = AccountDict[account]["token"]
+        if(token == uToken):
+            return AccountDict[account]["id"]
         else:
             pass
     print("Login Failed")
+    AccountFile.close()
     return ""
 
-#Hey this needs to be fixed with the new json format!
