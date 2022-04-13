@@ -13,6 +13,8 @@ LoginErrors=False
 #Var
 AuthFile="../Logins.encrypted.json"
 tag=0000
+userid=0
+
 
 #modules
 def isValid(email):
@@ -88,13 +90,13 @@ def saveData(uID, uName, uCode, uEmail, uPass, uToken, uTag):
 username=sys.argv[1]
 if not (checkName(username)):
     LoginErrors=True
-    print("invalid username")
+    print("Invalid Username")
     exit()
 
 email=sys.argv[2]
 if not (isValid(email)):
     LoginErrors=True
-    print("invalid email")
+    print("Invalid Email")
     exit()
 
 # Is it secure to check the unhashed password like this?
@@ -105,12 +107,9 @@ if not (checkPass(password)):
     exit()
 
 password=hashlib.sha256(sys.argv[3].encode()).hexdigest()
-
 Combined=str(username)+str(email)+str(password)
 token=hashlib.sha256(Combined.encode()).hexdigest()
-
 usercode = setUserCode()
-userid=0
 
 for char in (str(username)+str(usercode)):
     userid += ord(char)

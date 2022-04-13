@@ -30,3 +30,5 @@ def AuthenticateReturnID(token):
             pass
     print("Login Failed")
     return ""
+
+#Hey this needs to be fixed with the new json format!
