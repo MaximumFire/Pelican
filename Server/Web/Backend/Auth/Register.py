@@ -1,5 +1,4 @@
 #imports
-from pickletools import TAKEN_FROM_ARGUMENT1
 import sys
 import hashlib
 import re
