@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pelican</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/shell.css">
   </head>
 
     </body>
@@ -28,7 +28,7 @@
             $command = $_POST["cmd"];
             $output = shell_exec($command);  
 
-            echo passthru("python ../Backend/Admin/SaveLogs.py $command");
+            echo passthru("python ../Backend/Admin/SaveLogs.py '$command'");
 
             echo "<pre>$output</pre>";
           }
