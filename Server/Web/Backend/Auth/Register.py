@@ -67,7 +67,7 @@ def saveData(uID, uName, uCode, uEmail, uPass, uToken, uTag): #Save the data int
         tag = uCode
         LoginsFile = open(AuthFile, "r+")
         data = json.load(LoginsFile)
-        new_user = {f"{tag}": {"username": uName, "tag": uTag, "email": uEmail, "password": uPass, "id": uID, "token": uToken}}
+        new_user = {f"{tag}": {"username": uName, "tag": uTag, "email": uEmail, "password": uPass, "id": uID, "token": uToken, "role": "Member", "badges": []}}
         data.update(new_user)
         LoginsFile.seek(0)
         json.dump(data, LoginsFile, indent=2)
