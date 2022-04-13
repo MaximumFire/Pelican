@@ -50,7 +50,8 @@
         </form>
     </div>
 	
-	<?php
+	<div class="php">
+    <?php
       if (isset($_POST["submit"])){
         $user = "0";
         $email = $_POST["email"];
@@ -63,6 +64,7 @@
         }
       }
     ?>
+    </div>
 
 </body>
 </html>
