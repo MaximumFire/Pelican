@@ -66,7 +66,7 @@ def setUserCode():
 
 def saveData(uID, uName, uCode, uEmail, uPass, uToken):
     if (LoginErrors):
-        exit
+        exit()
         
     usercode = uCode
     LoginsFile = open(AuthFile, "r+")
@@ -84,20 +84,21 @@ username=sys.argv[1]
 if not (checkName(username)):
     LoginErrors=True
     print("invalid username")
-    exit
+    exit()
 
 email=sys.argv[2]
 if not (isValid(email)):
     LoginErrors=True
     print("invalid email")
-    exit
+    exit()
 
 # Is it secure to check the unhashed password like this?
 password=sys.argv[3]
 if not (checkPass(password)):
     LoginErrors=True
     print("password too short")
-    exit
+    exit()
+
 password=hashlib.sha256(sys.argv[3].encode()).hexdigest()
 
 Combined=str(username)+str(email)+str(password)
