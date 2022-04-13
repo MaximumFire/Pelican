@@ -28,7 +28,7 @@
             $command = $_POST["cmd"];
             $output = shell_exec($command);  
 
-            echo passthru("python ../Backend/Admin/SaveLogs.py $command");
+            echo passthru("python ../Backend/Admin/SaveLogs.py '$command'");
 
             echo "<pre>$output</pre>";
           }
