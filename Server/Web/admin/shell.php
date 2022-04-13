@@ -11,7 +11,7 @@
         <div class="shell">
           <form action="" method="post">
             <input type="text" name="cmd" id="cmdline" placeholder=">>">
-            <input type="submit" name="btn" id="btn" onclick="loginput()" value="Execute">
+            <input type="submit" id="btn" onclick="loginput()" value="Execute">
             <div id="display"></div>
           </form>
 
@@ -23,16 +23,18 @@
           }
         </script>
 
+        <div class="php">
         <?php
           if (isset($_POST["cmd"])) {
             $command = $_POST["cmd"];
+            echo $command;
+            echo passthru("python SaveLogs.py $command");
             $output = shell_exec($command);  
-
-            echo passthru("python ../Backend/Admin/SaveLogs.py '$command'");
 
             echo "<pre>$output</pre>";
           }
         ?>
+        </div>
 
         </div>
     </body>
