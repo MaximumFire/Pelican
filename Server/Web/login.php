@@ -24,35 +24,36 @@
         <a href="register.php">Register</a>
         <a href="tos.php">ToS</a>
 
+        <p id="username-display" class="pos-right"></p>
+        <script>
+            document.getElementById("username-display").innerHTML = localStorage.getItem("NAME");
+        </script>
     </div>
 
-    <div class="login medium-text">
-        <form action="" method="post" class="login">
-            <table>
-                <tr>
-                    <td>Email:</td>
-                    <td>
-                        <input type="text" name="email">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>Password:</td>
-                    <td>
-                        <input type="password" name="pass">
-                    </td>
-                </tr>
-
-                <tr>
-                    <input id="input-form" type="submit" name="submit" value="Login">
-                </tr>
-            </table>
-        </form>
+    <div class="login-page">
+        <div class="form">
+            <form class="login-form" action="" method="post">
+            <input name="email" type="text" placeholder="email" value=""/>
+            <input name="pass" type="password" placeholder="password" value=""/>
+            <button name="button" onclick="setLocalName()">login</button>
+            <p class="message">Not registered? <a href="register.php">Create an account</a></p>
+            </form>
+        </div>
     </div>
-	
+
+    <script>
+        function setLocalName() {
+            var div = document.getElementById("dom-target");
+            var data = div.innerHTML;
+            console.log("data:");
+            console.log(data);
+            localStorage.setItem("NAME", data);
+        }
+    </script>
+
 	<div class="php">
     <?php
-    if (isset($_POST["submit"])){
+    if (isset($_POST["button"])){
         $email = $_POST["email"];
         $pass = $_POST["pass"];
         if ((strpos($email, " ") != FALSE) or (strpos($pass, " ") != FALSE)) {
@@ -62,6 +63,17 @@
         }
     }
     ?>
+    </div>
+
+    <div id="dom-target" style="display: none;">
+        <?php 
+            if (isset($_POST["button"])){
+                $email = $_POST["email"];
+                echo passthru("python Backend/User/getName.py $email");
+            } else {
+                echo "test";
+            }
+        ?>
     </div>
 
 </body>
