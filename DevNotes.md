@@ -1,10 +1,8 @@
 
 **Account Info Format** <br /> 
-AccountInfo[0]: UserID <br /> 
-AccountInfo[1]: Username <br /> 
-AccountInfo[2]: Usercode <br /> 
-AccountInfo[3]: Email <br /> 
-AccountInfo[4]: Password <br /> 
-AccountInfo[5]: Token <br /> 
+"id": UserID <br /> 
+"username": username <br /> 
+"email": Email <br /> 
+"password": Password <br /> 
 **-----**
 TEST.
