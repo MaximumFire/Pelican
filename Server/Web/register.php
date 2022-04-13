@@ -82,8 +82,4 @@
             <p>If you ever want to donate you can send money to our team Patreon or KickStarter linked in the about tab. We aim to keep this project free from ads so any donations would be gladly appreciated.</p>
         </div>
     </div>
-
-    <script>
-        const login = () => window.location.replace("login.php");
-    </script>
 </body>
