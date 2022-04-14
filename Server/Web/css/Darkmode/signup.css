@@ -48,7 +48,7 @@
     padding: 100px;
     color: white;
   }
-  
+
   .row::after{
     content: "";
     display: table;
@@ -58,7 +58,7 @@
   .php {
   color:rgb(255, 255, 255);
   }
-  
+
   @import url(https://fonts.googleapis.com/css?family=Roboto:300);
   
   .login-page {
