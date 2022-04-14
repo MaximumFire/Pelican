@@ -19,6 +19,7 @@ def isValid(email): #Checks if the email is valid
         return True
     return False
 
+
 def emailInUse(email): #Checks if the email is alredy being used
     LoginsFile = open(AuthFile, 'r')
     LoginsDict = json.load(LoginsFile)
@@ -31,6 +32,7 @@ def emailInUse(email): #Checks if the email is alredy being used
             exit()
     LoginsFile.close()
     return False
+
 
 def checkName(name): #Check that the name is the corrent lan and no illegal characters
     allowed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -45,6 +47,7 @@ def checkPass(password): #Make sure the password is long enough
         return True
     return False
 
+
 def setUserCode(): # gets identifier for the key (to put as the key in json)
     LoginsFile = open(AuthFile, 'r')
     LoginsDict = json.load(LoginsFile)
@@ -57,6 +60,7 @@ def setUserCode(): # gets identifier for the key (to put as the key in json)
     LoginsFile.close()
     return usercode
 
+
 def setTag(): #Set the user tag to allow multiple users with the same name
     tag=0
     LoginsFile = open(AuthFile, 'r')
@@ -67,6 +71,7 @@ def setTag(): #Set the user tag to allow multiple users with the same name
             tag+=1
     LoginsFile.close()
     return tag
+
 
 def saveData(uID, uName, uCode, uEmail, uPass, uToken, uTag): #Save the data into the logins file
     if (LoginErrors):
@@ -79,8 +84,6 @@ def saveData(uID, uName, uCode, uEmail, uPass, uToken, uTag): #Save the data int
         LoginsFile.seek(0)
         json.dump(data, LoginsFile, indent=2)
         LoginsFile.close()
-
-
 #---
 
 username=sys.argv[1]
