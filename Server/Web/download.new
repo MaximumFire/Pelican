@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/css/Darkmode/download.css">
+        <link rel="shortcut icon" href="images/favicon.ico" />
+        <title>Pelican</title>
+    </head>
+    <body>
+        <script>
+            window.onload = event => {
+                document.getElementById("username-display").innerHTML = localStorage.getItem("NAME");
+            };
+        </script>
+        <div class="topnav">
+            <a href="home.php">Home</a>
+            <a href="download.php">Download</a>
+            <a href="support.php">Support</a>
+            <a href="about.php">About</a>
+            <a href="login.php">Login</a>
+            <a href="register.php">Register</a>
+            <a href="tos.php">ToS</a>
+            <p id="username-display" class="pos-right"></p>
+        </div>
+        <script src="src/download.js"></script>
+        <div class="container">
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <i class="fab fa-windows"></i>
+                        <h3>Windows</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <a href="#" type="button">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <i class="fab fa-android"></i>
+                        <h3>Android</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <a href="#" type="button">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="face face1">
+                    <div class="content">
+                        <i class="fab fa-apple"></i>
+                        <h3>Apple</h3>
+                    </div>
+                </div>
+                <div class="face face2">
+                    <div class="content">
+                        <a href="#" type="button">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+</html>
