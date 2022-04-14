@@ -30,3 +30,5 @@ Authenticate(token) authenticate a user by a token, returns True/False
 AuthenticateReturnID(token) authenticate a user by a token, returns UserID
 AuthenticateUsername(token) authenticate a user by a token, returns Username
 ```
+
+
