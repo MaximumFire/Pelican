@@ -61,9 +61,22 @@
     ?>
     </div>
 
+    <?php
+    function getPassthruValue(string $command)
+    {
+        ob_start();
+        passthru($command);
+        $returnValue = ob_get_contents();
+        ob_end_clean();
+        return $returnValue;
+    }
+    global $email;
+    $value = getPassthruValue("python Backend/User/getName.py $email");
+    ?>
+
     <script>
         function setName() {
-            var name = '<?php global $email; passthru("python Backend/User/getName.py $email");?>';
+            var name = '<?= $value ?>';
             console.log(name);
             localStorage.setItem("NAME", name);
             return false;
