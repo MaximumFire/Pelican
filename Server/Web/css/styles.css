@@ -3,9 +3,10 @@
 }
 
 body {
-  margin: 0px;
+  margin: 0;
+  padding: 0;
   background-color: #1d202c;
-  }
+}
 
 .header {
   background-color: #f38200f8;

@@ -35,7 +35,7 @@
             <form class="login-form" action="" method="post">
             <input name="email" type="text" placeholder="email" value=""/>
             <input name="pass" type="password" placeholder="password" value=""/>
-            <button name="button" onclick="setLocalName()">login</button>
+            <button name="button" onclick="setLocalName()">Sign In</button>
             <p class="message">Not registered? <a href="register.php">Create an account</a></p>
             </form>
         </div>
