@@ -28,8 +28,8 @@
         <h4 class="motto">With the security of Matrix and the ease of Discord</h4>
       </header>
       <div>
-        <button onclick="login()">Login</button>
-        <button onclick="register()">Register</button>
+        <button onclick="login()">Sign In</button>
+        <button onclick="register()">Sign Up</button>
       </div>
     </div>
       
