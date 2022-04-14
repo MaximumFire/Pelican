@@ -14,6 +14,10 @@
                 document.getElementById("username-display").innerHTML = localStorage.getItem("NAME");
             };
         </script>
+        <div class="header">
+            <img src="images/logo.svg">
+            <h3>With the ease of Discord and security of matrix!</h3>
+        </div>
         <div class="topnav">
             <a href="home.php">Home</a>
             <a href="download.php">Download</a>
@@ -25,14 +29,6 @@
             <a href="profile.php">Profile</a>
             <p id="username-display"  class="pos-right"></p>
         </div>
-        <div class="row">
-            <div class="column medium-text">
-                <h2>Support</h2>
-                <p>Need support for pelican but don't know who to ask? Don't worry because we pelican. Our teams support group can be found at <a href="https://www.example.com" target="_blank">https://www.example.com</a> and any other helpful support links or numbers can be found in the "helpful info" section on this page. Bugs can be reported for a cool badge next to your name when you next log in to Pelican! </p>
-            </div>
-            <div class="column medium-text">
-                <h2>Helpful info</h2>
-                <p>Add a list of support numbers emails etc here</p>
-            </div>
-        </div>
+        
     </body>
+</html>
