@@ -48,19 +48,6 @@ def checkPass(password): #Make sure the password is long enough
     return False
 
 
-def setUserCode(): # gets identifier for the key (to put as the key in json)
-    LoginsFile = open(AuthFile, 'r')
-    LoginsDict = json.load(LoginsFile)
-
-    if LoginsDict == {}: # no users added yet
-        usercode = 0
-    else: # some users added, so make it 1 more than last (starts at 0 so it will be len(LoginsDict))
-        usercode = len(LoginsDict)
-    
-    LoginsFile.close()
-    return usercode
-
-
 def setTag(): #Set the user tag to allow multiple users with the same name
     tag=0
     LoginsFile = open(AuthFile, 'r')
@@ -73,7 +60,7 @@ def setTag(): #Set the user tag to allow multiple users with the same name
     return tag
 
 
-def saveData(uID, uName, uCode, uEmail, uPass, uToken, uTag): #Save the data into the logins file
+def saveData(uID, uName, uEmail, uPass, uToken, uTag): #Save the data into the logins file
     if (LoginErrors):
         exit()
     else:       
@@ -110,8 +97,6 @@ Combined=str(username)+str(email)+str(password)
 token=hashlib.sha256(Combined.encode()).hexdigest()
 tag=str(setTag())
 
-usercode = str(setUserCode())
-
 for char in (str(username)+str(tag)):
     userid += ord(char)
 userid = str(userid)
@@ -122,7 +107,7 @@ LoginsFile = json.load(LoginsFile)
     
 try:
     if (not emailInUse(email)):
-        saveData(userid, username, usercode, email, password, token, tag)
+        saveData(userid, username, email, password, token, tag)
         print("Register Success")
 except Exception as e:
     print(e)
