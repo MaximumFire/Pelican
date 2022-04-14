@@ -1,0 +1,286 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #1d202c;
+  }
+  
+  .header {
+    background-color: #f38200f8;
+    padding: 20px;
+    text-align: center;
+    font-size: 300%;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+  
+  .pos-left {
+    float: left;
+  }
+  
+  .pos-right {
+    float: right;
+    padding-right: 50px;
+  }
+  
+  .pos-below {
+    position: relative;
+    top: 40px;
+  }
+  
+  .topnav {
+    overflow: hidden;
+    background-color: rgb(201, 90, 0);
+  }
+  
+  .topnav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+  
+  .topnav a:hover {
+    background-color: rgb(255, 255, 255);
+    color: black; 
+    transform: scale(1.2, 1.2);
+  }
+  
+  .column {
+    float: left;
+    width: 50%;
+    padding: 100px;
+    color: white;
+  }
+  
+  .row::after{
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  .downloads {
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+  }
+  
+  .downloads a:hover {
+    color: #1d202c;
+    background-color: #f2f2f2;
+  }
+  
+  .footer {
+    overflow: hidden;
+    background-color: rgb(201, 90, 0);
+  }
+  
+  .footer a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    background-color: rgb(255, 255, 255);
+    color: black; 
+    transform: scale(1.2, 1.2);
+  }
+  
+  .tos {
+    color: white;
+    padding: 10px;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+  
+  .typewriter h3 {
+    overflow: hidden;
+    border-right: .10em solid rgb(0, 0, 0); 
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: .10em; 
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret .75s step-end infinite;
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(77, 73, 70); }
+  }
+  
+  .about {
+    color: white;
+    overflow: hidden;
+    padding-top: 10px;
+    display: block;
+    padding-right: 400px;
+    padding-left: 10px;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', sans-serif;
+  }
+  
+  .center {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .large-text {
+  font-size: 400%;
+  font-family: 'Trebuchet MS', sans-serif;
+  }
+  
+  .medium-text {
+  font-size: 200%;
+  font-family: 'Trebuchet MS', sans-serif;
+  }
+  
+  .container button {
+  width: 100px;
+  height: 50px;
+  margin-left: 10px;
+  
+  background-color: #292C3D;
+  color: #F6E8EA;
+  border: 2px solid #F6E8EA;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  
+  animation-name: fadeout;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadeout {
+    from {background-color: #F6E8EA; color: #292C3D;};
+    to {background-color: #292C3D; color: #F6E8EA;};
+  }
+  
+  .container button:hover {
+  cursor: pointer;
+  color: #292C3D;
+  background-color: white;
+  
+  animation-name: fadein;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  }
+  
+  @keyframes fadein {
+    from {background-color: #292C3D; color: #F6E8EA;};
+    to {background-color: #F6E8EA; color: #292C3D;};
+  }
+  
+  .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  }
+  
+  .motto {
+  color: #F6E8EA;
+  font-family: 'Trebuchet MS', sans-serif;
+  text-align: center;
+  }
+  
+  .bordered {
+  border: 2px solid black;
+  padding: 15px;
+  }
+  
+  .php {
+  color:rgb(255, 255, 255);
+  }
+  
+  .white {
+  color: white;
+  }
+  
+  @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+  
+  .login-page {
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
+  }
+  
+  .form {
+  position: relative;
+  z-index: 1;
+  background: #4c5266;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  
+  .form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  }
+  
+  .form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #ffa600;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  }
+  
+  .form button:hover,.form button:active,.form button:focus {
+  background: #a55102;
+  }
+  
+  .form .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+  }
+  
+  .form .message a {
+  color: #af844c;
+  text-decoration: none;
+  }
+  
+  .form .register-form {
+  display: none;
+  }
+  
