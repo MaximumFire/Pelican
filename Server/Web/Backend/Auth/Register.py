@@ -102,9 +102,6 @@ for char in (str(username)+str(tag)):
 userid = str(userid)
 
 
-LoginsFile = open(AuthFile, 'r')
-LoginsFile = json.load(LoginsFile)
-    
 try:
     if (not emailInUse(email)):
         saveData(userid, username, email, password, token, tag)
@@ -112,5 +109,3 @@ try:
 except Exception as e:
     print(e)
     pass
-finally:
-    LoginsFile.close()
