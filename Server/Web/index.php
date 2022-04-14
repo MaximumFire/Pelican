@@ -9,6 +9,12 @@
   </head>
 <body>
 
+<script>
+        window.onload = event => {
+            document.getElementById("username-display").innerHTML = localStorage.getItem("NAME");
+        };
+    </script>
+
     <div class="topnav">
         <a href="home.php">Home</a>
         <a href="download.php">Download</a>
@@ -37,5 +43,6 @@
       const login = () => window.location.replace("login.php");
       const register = () => window.location.replace("register.php");
     </script>
+
 </body>
 </html>

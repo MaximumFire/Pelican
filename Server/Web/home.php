@@ -10,6 +10,12 @@
 </head>
 <body>
 
+<script>
+        window.onload = event => {
+            document.getElementById("username-display").innerHTML = localStorage.getItem("NAME");
+        };
+    </script>
+
     <div class="header typewriter">
         <img src="images/logo.svg">
         <h3>With the ease of Discord and security of matrix!</h3>   

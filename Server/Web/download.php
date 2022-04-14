@@ -10,6 +10,12 @@
 </head>
 <body>
 
+<script>
+        window.onload = event => {
+            document.getElementById("username-display").innerHTML = localStorage.getItem("NAME");
+        };
+    </script>
+
     <div class="topnav">
         <a href="home.php">Home</a>
         <a href="download.php">Download</a>
@@ -35,4 +41,5 @@
             <p>Linux <a href="https://www.google.com"><br><img class="pos-left" src="images/linux.png" alt="Windows Icon"></a></p>
         </div>
     </div>
+
 </body>

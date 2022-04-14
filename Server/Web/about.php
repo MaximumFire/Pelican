@@ -9,6 +9,12 @@
     <title>Pelican</title>
 </head>
 <body>
+    
+<script>
+        window.onload = event => {
+            document.getElementById("username-display").innerHTML = localStorage.getItem("NAME");
+        };
+    </script>
 
     <div class="topnav">
         <a href="home.php">Home</a>

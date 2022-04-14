@@ -10,6 +10,12 @@
 </head>
 <body>
 
+<script>
+        window.onload = event => {
+            document.getElementById("username-display").innerHTML = localStorage.getItem("NAME");
+        };
+    </script>
+
     <div class="header typewriter">
         <img src="images/logo.svg">
         <h1>Pelican: Security where it counts</h1>   
@@ -25,9 +31,6 @@
         <a href="tos.php">ToS</a>
 
         <p id="username-display" class="pos-right"></p>
-        <script>
-            document.getElementById("username-display").innerHTML = localStorage.getItem("NAME");
-        </script>
     </div>
 
     <div class="login-page">
@@ -35,24 +38,15 @@
             <form class="login-form" action="" method="post">
             <input name="email" type="text" placeholder="email" value=""/>
             <input name="pass" type="password" placeholder="password" value=""/>
-            <button name="button" onclick="setLocalName()">Sign In</button>
+            <button name="button" onclick="setName()">Sign In</button>
             <p class="message">Not registered? <a href="register.php">Create an account</a></p>
             </form>
         </div>
     </div>
 
-    <script>
-        function setLocalName() {
-            var div = document.getElementById("dom-target");
-            var data = div.innerHTML;
-            console.log("data:");
-            console.log(data);
-            localStorage.setItem("NAME", data);
-        }
-    </script>
-
 	<div class="php">
     <?php
+    global $email;
     if (isset($_POST["button"])){
         $email = $_POST["email"];
         $pass = $_POST["pass"];
@@ -61,20 +55,20 @@
         } else {
             echo passthru("python Backend/Auth/Auth.py $email $pass");
         }
+    } else {
+        $email = "";
     }
     ?>
     </div>
 
-    <div id="dom-target" style="display: none;">
-        <?php 
-            if (isset($_POST["button"])){
-                $email = $_POST["email"];
-                echo passthru("python Backend/User/getName.py $email");
-            } else {
-                echo "test";
-            }
-        ?>
-    </div>
+    <script>
+        function setName() {
+            var name = '<?php global $email; passthru("python Backend/User/getName.py $email");?>';
+            console.log(name);
+            localStorage.setItem("NAME", name);
+            return false;
+        };
+    </script>
 
 </body>
 </html>
