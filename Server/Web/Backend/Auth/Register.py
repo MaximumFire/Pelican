@@ -37,13 +37,13 @@ def emailInUse(email): #Checks if the email is alredy being used
 def checkName(name): #Check that the name is the corrent lan and no illegal characters
     allowed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     for char in name:
-        if char not in allowed or len(name) < 3:
+        if char not in allowed or len(name) =< 4: #Min Lan of username
             return False 
     return True
 
 
 def checkPass(password): #Make sure the password is long enough
-    if len(password) > 7:
+    if len(password) >= 8: #Min lan of password
         return True
     return False
 
@@ -96,7 +96,6 @@ if not (isValid(email)):
     print("Invalid Email")
     exit()
 
-# Is it secure to check the unhashed password like this?
 password=sys.argv[3]
 if not (checkPass(password)):
     LoginErrors=True
