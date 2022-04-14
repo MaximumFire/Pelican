@@ -9,5 +9,5 @@ with open(AuthFile, "r") as f:
     data = json.load(f)
     for user in data:
         if data[user]["email"].lower() == email:
-            print(data[user]["username"])
+            print(data[user]["username"], end="")
             break

@@ -9,6 +9,13 @@
     <title>Pelican</title>
 </head>
 <body>
+
+<script>
+        window.onload = event => {
+            document.getElementById("username-display").innerHTML = localStorage.getItem("NAME");
+        };
+    </script>
+
     <div class="topnav">
         <a href="home.php">Home</a>
         <a href="download.php">Download</a>
@@ -69,5 +76,6 @@
 
         <p>Any claim related to Pelican's Website shall be governed by the laws of us without regards to its conflict of law provisions.</p>
     </div>
+
 </body>
 </html>

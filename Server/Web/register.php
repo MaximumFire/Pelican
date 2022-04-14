@@ -10,6 +10,12 @@
 </head>
 <body>
 
+<script>
+        window.onload = event => {
+            document.getElementById("username-display").innerHTML = localStorage.getItem("NAME");
+        };
+    </script>
+
     <div class="header typewriter">
         <img src="images/logo.svg">
         <h1>Pelican: Security where it counts</h1>   
@@ -73,6 +79,6 @@
             <h2>Want to donate?</h2>
             <p>If you ever want to donate you can send money to our team Patreon or KickStarter linked in the about tab. We aim to keep this project free from ads so any donations would be gladly appreciated.</p>
         </div>
-    </div>
+    </div>;;
 
 </body>
