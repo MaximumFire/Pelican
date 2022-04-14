@@ -59,14 +59,25 @@ def setTag(): #Set the user tag to allow multiple users with the same name
     LoginsFile.close()
     return tag
 
+def setIdentifier():
+    LoginsFile = open(AuthFile, 'r')
+    LoginsDict = json.load(LoginsFile)
 
-def saveData(uID, uName, uEmail, uPass, uToken, uTag): #Save the data into the logins file
+    if LoginsDict == {}:
+        LoginsFile.close()
+        return 0
+    else:
+        LoginsFile.close()
+        return len(LoginsDict)
+
+
+def saveData(uID, uName, uEmail, uPass, uToken, uTag, Identifier): #Save the data into the logins file
     if (LoginErrors):
         exit()
     else:       
         LoginsFile = open(AuthFile, "r+")
         data = json.load(LoginsFile)
-        new_user = {f"{tag}": {"username": uName, "tag": uTag, "email": uEmail, "password": uPass, "id": uID, "token": uToken, "role": "Member", "badges": []}}
+        new_user = {f"{Identifier}": {"username": uName, "tag": uTag, "email": uEmail, "password": uPass, "id": uID, "token": uToken, "role": "Member", "badges": []}}
         data.update(new_user)
         LoginsFile.seek(0)
         json.dump(data, LoginsFile, indent=2)
@@ -101,10 +112,11 @@ for char in (str(username)+str(tag)):
     userid += ord(char)
 userid = str(userid)
 
+identifier = setIdentifier()
 
 try:
     if (not emailInUse(email)):
-        saveData(userid, username, email, password, token, tag)
+        saveData(userid, username, email, password, token, tag, identifier)
         print("Register Success")
 except Exception as e:
     print(e)
