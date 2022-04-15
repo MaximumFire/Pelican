@@ -16,7 +16,7 @@
 
         <div class="searchform"> 
             <form action="" method="post">
-                <input type="text" name="nametag" placeholder="Username:Tag">
+                <input type="text" name="nametag" placeholder="username:1234">
                 <button name="button">Search</button>
             </form>
         </div>
