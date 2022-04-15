@@ -8,25 +8,9 @@
         <title>Main User Page</title>
     </head>
 
-    <body>   
-        <div class="theform"> 
-            <form action="" method="post">
-                <input type="text" name="nametag" placeholder="Username:Tag">
-                <button name="button">Search</button>
-            </form>
-        </div>
-
-        <div class="php">
-            <?php 
-            if (isset($_POST['button'])) {
-                $searchuser = $_POST["nametag"];
-                if ((strpos($searchuser, " ") != FALSE)) {
-                    echo "invalid entries (no spaces!)";
-                } else {
-                    echo passthru("python ../../Backend/User/SearchUser.py $searchuser");
-                }
-            }
-            ?>
+    <body>
+        <div class="sidenav">
+            <a href="search.php">Add Friend</a>
         </div>
     </body>
 </html>

@@ -16,14 +16,13 @@ def isValid(username):
     return False
 #--
 
+# Add displayed output to user here
 username = sys.argv[1]
 if isValid(username):
     name = username.replace(':', '-')
 else:
-    print("not valid")
     exit()
 for user in users:
     if user == name:
-        print("User was found")
         exit()
-print("User was not found")
+
