@@ -7,7 +7,7 @@ import json
 
 
 #Var
-AuthFile="../Logins.encrypted.json"
+AuthFile="../../Logins.encrypted.json"
 userid=0
 LoginErrors=False
 
@@ -37,7 +37,7 @@ def emailInUse(email): #Checks if the email is alredy being used
 def checkName(name): #Check that the name is the corrent lan and no illegal characters
     allowed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     for char in name:
-        if char not in allowed or len(name) =< 4: #Min Lan of username
+        if char not in allowed or len(name) <= 4: #Min Lan of username
             return False 
     return True
 

@@ -3,7 +3,7 @@ import hashlib
 import re
 import json
 
-AuthFile="../Logins.encrypted.json"
+AuthFile="../../Logins.encrypted.json"
 
 def Authenticate(token):
     AccountFile = open(AuthFile, 'r')

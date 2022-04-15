@@ -2,7 +2,7 @@ import sys
 import hashlib
 import json
 
-AuthFile="../Logins.encrypted.json"
+AuthFile="../../Logins.encrypted.json"
 
 
 email=sys.argv[1] #Requested email, for blank ""
