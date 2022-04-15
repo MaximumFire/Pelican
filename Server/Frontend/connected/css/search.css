@@ -1,6 +1,32 @@
-.theform {
+.searchform {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.searchform form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.searchform input[type="text"] {
+    border: none;
+    width: 200px;
+    height: 40px;
+    font-size: 20px;
+    outline: none;
+    padding-left: 10px;
+}
+
+.searchform button {
+    border: none;
+    height: 40px;
+    background-color: white;
+    font-size: 17px;
+}
+
+.searchform button:hover {
+    cursor: pointer;
 }

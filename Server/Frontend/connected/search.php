@@ -14,7 +14,7 @@
             <a href="search.php">Add Friend</a>
         </div>
 
-        <div class="theform"> 
+        <div class="searchform"> 
             <form action="" method="post">
                 <input type="text" name="nametag" placeholder="Username:Tag">
                 <button name="button">Search</button>
