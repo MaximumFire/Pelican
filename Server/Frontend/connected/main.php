@@ -19,7 +19,7 @@
         <div class="php">
             <?php 
             if (isset($_POST['button'])) {
-                $searchuser = $_POST['nametag'];
+                $searchuser = $_POST["nametag"];
                 if ((strpos($searchuser, " ") != FALSE)) {
                     echo "invalid entries (no spaces!)";
                 } else {

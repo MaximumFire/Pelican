@@ -4,7 +4,7 @@ from os import listdir
 from os.path import isfile, join
 
 
-USERS_PATH="Server/Backend/StoredUsers/"
+USERS_PATH="../../Backend/StoredUsers/"
 users = [f for f in listdir(USERS_PATH) if isfile(join(USERS_PATH, f))]
 users = [f[:-4] for f in users]
 
