@@ -3,11 +3,13 @@ import sys
 import hashlib
 import re
 import json
+from random import randint
 #---
 
 
 #Var
-AuthFile="../Logins.encrypted.json"
+USERS_PATH="../Backend/StoredUsers/"
+AUTHFILE="../Logins.encrypted.json"
 userid=0
 LoginErrors=False
 
@@ -21,7 +23,7 @@ def isValid(email): #Checks if the email is valid
 
 
 def emailInUse(email): #Checks if the email is alredy being used
-    LoginsFile = open(AuthFile, 'r')
+    LoginsFile = open(AUTHFILE, 'r')
     LoginsDict = json.load(LoginsFile)
 
     for user in LoginsDict:
@@ -37,7 +39,7 @@ def emailInUse(email): #Checks if the email is alredy being used
 def checkName(name): #Check that the name is the corrent lan and no illegal characters
     allowed = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     for char in name:
-        if char not in allowed or len(name) <= 4: #Min Lan of username
+        if char not in allowed or len(name) <= 3: #Min Lan of username
             return False 
     return True
 
@@ -49,18 +51,11 @@ def checkPass(password): #Make sure the password is long enough
 
 
 def setTag(): #Set the user tag to allow multiple users with the same name
-    tag=0
-    LoginsFile = open(AuthFile, 'r')
-    LoginsDict = json.load(LoginsFile)
-
-    for user in LoginsDict:
-        if (LoginsDict[user]["username"].lower() == username.lower()):
-            tag+=1
-    LoginsFile.close()
-    return tag
+    return str(randint(1000, 9999))
+    
 
 def setIdentifier():
-    LoginsFile = open(AuthFile, 'r')
+    LoginsFile = open(AUTHFILE, 'r')
     LoginsDict = json.load(LoginsFile)
 
     if LoginsDict == {}:
@@ -71,13 +66,22 @@ def setIdentifier():
         return len(LoginsDict)
 
 
+def makeUser(uName, uTag):
+    UserFile = open(f"{USERS_PATH}{uName}-{uTag}.txt", "w+")
+    UserFile.write(uName)
+    UserFile.close()
+
+
 def saveData(uID, uName, uEmail, uPass, uToken, uTag, Identifier): #Save the data into the logins file
     if (LoginErrors):
         exit()
     else:       
-        LoginsFile = open(AuthFile, "r+")
+        LoginsFile = open(AUTHFILE, "r+")
         data = json.load(LoginsFile)
         new_user = {f"{Identifier}": {"username": uName, "tag": uTag, "email": uEmail, "password": uPass, "id": uID, "token": uToken, "role": "Member", "badges": []}}
+       
+        makeUser(uName, uTag)
+
         data.update(new_user)
         LoginsFile.seek(0)
         json.dump(data, LoginsFile, indent=2)
