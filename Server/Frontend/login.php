@@ -49,6 +49,7 @@
             echo "invalid entries (no spaces!)";
         } else {
             echo passthru("python ../Backend/Auth/Auth.py $email $pass");
+            header("Location: /connected/main.php");
         }
     } else {
         $email = "";

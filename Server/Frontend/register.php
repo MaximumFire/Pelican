@@ -53,6 +53,7 @@
                 echo "invalid entries (no spaces!)";
             } else {
                 echo passthru("python ../Backend/Auth/Register.py $user $email $pass");
+                header("Location: login.php");
             }
         }
         ?> </div>
