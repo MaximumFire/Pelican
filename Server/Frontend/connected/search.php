@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/search.css">
         <title>Main User Page</title>
     </head>
 
@@ -12,7 +13,6 @@
         <div class="sidenav">
             <a href="search.php">Add Friend</a>
         </div>
-
 
         <div class="theform"> 
             <form action="" method="post">
