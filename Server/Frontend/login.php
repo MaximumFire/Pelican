@@ -48,14 +48,14 @@
         if ((strpos($email, " ") != FALSE) or (strpos($pass, " ") != FALSE)) {
             echo "invalid entries (no spaces!)";
         } else {
-            echo passthru("python Backend/Auth/Auth.py $email $pass");
+            echo passthru("python ../Backend/Auth/Auth.py $email $pass");
         }
     } else {
         $email = "";
     }
     ?> </div> <script>
             function setName() {
-                var name = '<?php global $email; passthru("python Backend/User/getName.py $email");?>';
+                var name = '<?php global $email; passthru("python ../Backend/User/getName.py $email");?>';
                 localStorage.setItem("NAME", name);
                 document.getElementById("username-display").innerHTML = localStorage.getItem("NAME");
                 return false;

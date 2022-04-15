@@ -52,7 +52,7 @@
             if ((strpos($user, " ") != FALSE) or (strpos($pass, " ") != FALSE) or (strpos($email, " ") != FALSE)) {
                 echo "invalid entries (no spaces!)";
             } else {
-                echo passthru("python Backend/Auth/Register.py $user $email $pass");
+                echo passthru("python ../Backend/Auth/Register.py $user $email $pass");
             }
         }
         ?> </div>
