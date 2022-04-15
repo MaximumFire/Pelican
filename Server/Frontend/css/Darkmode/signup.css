@@ -41,6 +41,12 @@
     color: black; 
     transform: scale(1.2, 1.2);
   }
+
+  .topnav p {
+    color:rgb(255, 255, 255);
+    font-family: 'Trebuchet MS', sans-serif;
+    float: right;
+  }
   
   .column {
     float: left;

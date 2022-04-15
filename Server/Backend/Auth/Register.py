@@ -7,7 +7,7 @@ import json
 
 
 #Var
-AuthFile="../../Logins.encrypted.json"
+AuthFile="../Logins.encrypted.json"
 userid=0
 LoginErrors=False
 

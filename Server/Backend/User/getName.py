@@ -1,7 +1,7 @@
 import sys
 import json
 
-AuthFile="../../Logins.encrypted.json"
+AuthFile="../Logins.encrypted.json"
 
 email = sys.argv[1].lower()
 
