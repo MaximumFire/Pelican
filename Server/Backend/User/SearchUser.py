@@ -7,7 +7,7 @@ from os.path import isfile, join
 USERS_PATH="Server/Backend/StoredUsers/"
 users = [f for f in listdir(USERS_PATH) if isfile(join(USERS_PATH, f))]
 users = [f[:-4] for f in users]
-print(users)
+
 #--
 def isValid(username):
     regex = re.compile(r'[A-Za-z0-9]+[:]+[0-9]{4,4}')
