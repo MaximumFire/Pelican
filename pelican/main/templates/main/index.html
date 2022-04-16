@@ -1,0 +1,19 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <img src="{% static 'images/logo.svg' %}" alt="Pelican WebChat Logo">
+    <header class="medium-text">
+        <h1 class="motto">Its Time To Join Pelican</h1>
+        <h4 class="motto">With the security of Matrix and the ease of Discord</h4>
+    </header>
+    <div>
+        <button onclick="login()">Sign In</button>
+        <button onclick="register()">Sign Up</button>
+    </div>
+    <script>
+        const login = () => window.location.replace("login");
+        const register = () => window.location.replace("register");
+    </script>
+</div>
+{% endblock %}

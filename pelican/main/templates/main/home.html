@@ -1,0 +1,20 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block head %}
+<div class="header typewriter">
+    <img src="{% static 'images/logo.svg' %}">
+    <h3>With the ease of Discord and security of matrix!</h3>
+</div>
+{% endblock %}
+{% block content %}
+<div class="row large-text">
+    <div class="column">
+        <h4>Our Goals</h4>
+        <h6>The goal of this project is to produce a private chatting application with similar functionality to other popular sites such as discord or teams. The project is still under developement and will hopefully remain updated until a complete product is formed.</h6>
+    </div>
+    <div class="column">
+        <h4>Benefits of Pelican</h4>
+        <h6>Pelican is being made to allow higher levels of customisation and security when compared to other industry standard applications.</h6>
+    </div>
+</div>
+{% endblock %}

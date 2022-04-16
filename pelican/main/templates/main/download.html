@@ -1,0 +1,36 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block content %}
+<div class="row medium-text">
+    <div class="column">
+        <h3>Downloads</h3>
+        <p>Windows 64bit <a href="https://www.google.com">
+                <br>
+                <img class="pos-left" src="{% static 'images/windows.png' %}" alt="Windows Icon">
+            </a>
+        </p>
+        <p>
+            <br>
+            <br>Windows 32bit <a href="https://www.google.com">
+                <br>
+                <img class="pos-left" src="{% static 'images/windows.png' %}" alt="Windows Icon">
+            </a>
+        </p>
+        <p>
+            <br>
+            <br>MacBook <a href="https://www.google.com">
+                <br>
+                <img class="pos-left" src="{% static 'images/apple.png' %}" alt="Windows Icon">
+            </a>
+        </p>
+    </div>
+    <div class="column">
+        <h3>Linux Downloads</h3>
+        <p>Linux <a href="https://www.google.com">
+                <br>
+                <img class="pos-left" src="{% static 'images/linux.png' %}" alt="Windows Icon">
+            </a>
+        </p>
+    </div>
+</div>
+{% endblock %}
