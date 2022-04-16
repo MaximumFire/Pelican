@@ -36,4 +36,7 @@ AuthenticateUsername(token) authenticate a user by a token, returns Username
 python manage.py runserver
 ```
 
-
+**Admin Panel**
+```
+Admin login = test:test
+```
