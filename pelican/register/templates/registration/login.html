@@ -1,4 +1,4 @@
-{% extends "main/base.html" %}
+{% extends 'main/base.html' %}
 {% load static %}
 {% block content %}
 <style>
@@ -7,7 +7,7 @@
   .login-page {
   width: 360px;
   padding: 8% 0 0;
-  margin: auto; 
+  margin: auto;
   }
   
   .form {
@@ -33,6 +33,7 @@
   font-size: 14px;
   }
   
+  
   .form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -50,7 +51,14 @@
   
   .form button:hover,.form button:active,.form button:focus {
   background: #a55102;
-  font-family: "Roboto", sans-serif;
+  }
+
+  .errorlist {
+      border-style: solid;
+      border-width: 2px;
+      border-color: orangered;
+      border-radius: 2px;
+      color: white;
   }
 
   .form label {
@@ -63,15 +71,6 @@
   box-sizing: border-box;
   font-size: 18px;
   color: white;
-  }
-
-  .errorlist {
-      border-style: solid;
-      border-width: 2px;
-      border-color: orangered;
-      border-radius: 2px;
-      color: white;
-      background-color: orangered;
   }
   
   .form .message {
@@ -94,8 +93,8 @@
     <form method="POST" class="form">
         {% csrf_token %}
         {{ form }}
-        <button type="submit" class="">Register</button>
-        <p class="message">Already registered? <a href="{% url 'login' %}">Sign In</a></p>
+        <button type="submit" class="">Login</button>
+        <p class="message">Don't have an account? <a href="{% url 'register' %}">Register</a></p>
     </form>
 </div>
 {% endblock %}
