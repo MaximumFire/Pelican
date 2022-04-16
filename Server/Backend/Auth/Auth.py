@@ -11,7 +11,10 @@ def getSalt(email):
         Logins = json.load(f)
         for login in Logins:
             if email.lower() == Logins[login]["email"]:
-                return Logins[login]["salt"]
+                salt = Logins[login]["salt"]
+                AuthFile.close()
+                return salt
+        AuthFile.close()
         return False
 #--
 
