@@ -3,7 +3,8 @@ import sys
 import hashlib
 import re
 import json
-from random import randint
+from random import choice, randint
+from string import ascii_letters,  punctuation
 #---
 
 
@@ -72,13 +73,13 @@ def makeUser(uName, uTag):
     UserFile.close()
 
 
-def saveData(uID, uName, uEmail, uPass, uToken, uTag, Identifier): #Save the data into the logins file
+def saveData(uID, uName, uEmail, uPass, uSalt, uToken, uTag, Identifier): #Save the data into the logins file
     if (LoginErrors):
         exit()
     else:       
         LoginsFile = open(AUTHFILE, "r+")
         data = json.load(LoginsFile)
-        new_user = {f"{Identifier}": {"username": uName, "tag": uTag, "email": uEmail, "password": uPass, "id": uID, "token": uToken, "role": "Member", "badges": []}}
+        new_user = {f"{Identifier}": {"username": uName, "tag": uTag, "email": uEmail, "password": uPass, "salt": uSalt, "id": uID, "token": uToken, "role": "Member", "badges": []}}
        
         makeUser(uName, uTag)
 
@@ -86,6 +87,10 @@ def saveData(uID, uName, uEmail, uPass, uToken, uTag, Identifier): #Save the dat
         LoginsFile.seek(0)
         json.dump(data, LoginsFile, indent=2)
         LoginsFile.close()
+
+
+def genSalt():
+    return ''.join(choice(ascii_letters + punctuation) for _ in range(10))
 #---
 
 username=sys.argv[1]
@@ -105,10 +110,12 @@ if not (checkPass(password)):
     LoginErrors=True
     print("Password To Short")
     exit()
+salt = genSalt()
+password=hashlib.sha256(f"{sys.argv[3]}{salt}".encode()).hexdigest()
 
-password=hashlib.sha256(sys.argv[3].encode()).hexdigest()
 Combined=str(username)+str(email)+str(password)
 token=hashlib.sha256(Combined.encode()).hexdigest()
+
 tag=str(setTag())
 
 for char in (str(username)+str(tag)):
@@ -119,7 +126,7 @@ identifier = setIdentifier()
 
 try:
     if (not emailInUse(email)):
-        saveData(userid, username, email, password, token, tag, identifier)
+        saveData(userid, username, email, password, salt, token, tag, identifier)
         print("Register Success")
 except Exception as e:
     print(e)

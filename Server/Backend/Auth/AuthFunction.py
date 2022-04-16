@@ -1,6 +1,3 @@
-import sys
-import hashlib
-import re
 import json
 
 AuthFile="../Logins.encrypted.json"
