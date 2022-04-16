@@ -19,9 +19,9 @@
   .pos-left {
     float: left;
   }
-  
+
   .pos-right {
-    float: right;
+    float: right !important;
     padding-right: 50px;
   }
   
@@ -56,7 +56,7 @@
     font-family: 'Trebuchet MS', sans-serif;
     float: right;
   }
-  
+
   .column {
     float: left;
     width: 50%;
