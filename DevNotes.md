@@ -31,4 +31,9 @@ AuthenticateReturnID(token) authenticate a user by a token, returns UserID
 AuthenticateUsername(token) authenticate a user by a token, returns Username
 ```
 
+**Command to run django server**
+```
+python manage.py runserver
+```
+
 
