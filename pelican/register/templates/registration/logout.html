@@ -1,7 +1,16 @@
 {% extends 'main/base.html' %}
 {% load static %}
+
 {% block content %}
-<div class="row medium-text">
+<style>
+.row {
+    display: flex;
+    justify-content: center;
+    font-size: 270%;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+</style>
+<div class="row">
     <div class="column">
         {% if logged_in %}
             <h3>Successfully logged out.</h3>

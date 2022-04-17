@@ -9,4 +9,6 @@ urlpatterns = [
     path("support/", views.support, name="support"),
     path("about/", views.about, name="about"),
     path("tos/", views.tos, name="tos"),
+    path("profile/", views.profile, name="profile"),
+    path('password-change/', views.ChangePasswordView.as_view(), name='password-change'),
 ]
