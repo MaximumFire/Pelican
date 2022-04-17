@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block content %}
+<div class="row medium-text">
+    <div class="column">
+        {% if logged_in %}
+            <h3>Successfully logged out.</h3>
+            <p>If you want to login again, click <a href="{% url 'login' %}">here</a>.</p>
+        {% else %}
+            <h3>You are not currently logged in.</h3>
+            <p>If you want to login, click <a href="{% url 'login' %}">here</a>.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

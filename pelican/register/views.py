@@ -1,6 +1,9 @@
+from tkinter.tix import Tree
+from urllib import request
 from django.shortcuts import redirect, render
 from .forms import CreateUserForm
 from django.contrib.auth.models import User
+from django.contrib.auth import logout
 
 # Create your views here.
 
@@ -17,3 +20,11 @@ def register(response):
         form = CreateUserForm()
 
     return render(response, "register/register.html", {"form": form})
+
+def logout_page(response):
+    if str(response.user) == "AnonymousUser":
+        logged_in = False
+    else:
+        logged_in = True
+    logout(response)
+    return render(response, "registration/logout.html", {"logged_in": logged_in})
