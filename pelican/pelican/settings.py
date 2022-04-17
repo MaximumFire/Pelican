@@ -139,4 +139,6 @@ MEDIA_URL = "/media/"
 
 STATIC_ROOT = "static/"
 
+CSRF_TRUSTED_ORIGINS = ["https://pelican-chat-app.herokuapp.com"]
+
 django_heroku.settings(locals())
