@@ -1,5 +1,3 @@
-from tkinter.tix import Tree
-from urllib import request
 from django.shortcuts import redirect, render
 from .forms import CreateUserForm
 from django.contrib.auth.models import User
